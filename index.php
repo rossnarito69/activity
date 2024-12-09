@@ -16,6 +16,22 @@
     <?php
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $input=$_POST['numbers'];
+        $numbers = array_map('trim', explode(',', $input));
+
+        echo "<h3>Results:</h3>";
+        foreach ($numbers as $number){
+            if(is_numeric($number)){
+                if($number % 2 == 0){
+                    echo "The number $number is even. <br>";
+                } else {
+                    echo "The number $number is odd. <br>";
+                }
+
+            } else {
+                echo "Invalid input: '$number' is not a valid number. <br>";
+            }
+
+        }
     }
     ?>
 </body>
